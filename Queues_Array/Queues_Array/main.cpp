@@ -16,40 +16,43 @@ class Queues{
     int Q[Max];
     int head,tail;
 public:
-    bool Enqueue(int x);
+    void Enqueue(int x);
     int Dequeue();
     bool IsEmpty();
     Queues(){tail=0;head=0;}
     
 };
 
-bool Queues::Enqueue(int x){
+void Queues::Enqueue(int x){
+   
     if(tail>=Max){
         cout<<"overflow"<<endl;
-        return false;
     }
     else{
+        
         Q[tail]=x;
         tail=tail+1;
         cout<<x<<" : Enqued"<<"  tail is : "<<tail<<"  head is : " <<head<<endl;
-        return true;
-        
     }
+    
 }
 int Queues::Dequeue(){
-    if(IsEmpty()){
-        cout<<"underflow"<<endl;
-        return false;
-    }
+    
+        if(IsEmpty()){
+            cout<<"underflow"<<endl;
+            return false;
+        }
+    
     else{
+        
         cout<<Q[head]<<" : dequeueing"<<endl;
         head=head+1;
         cout<<"head is : "<<head<<endl;
-        return true;
+        return head;
     }
 }
 bool Queues::IsEmpty(){
-    if(head==tail){
+    if(head==tail-1){
         return true;
     }
     else{
@@ -69,7 +72,7 @@ int main(int argc, const char * argv[]) {
     q.Dequeue();
     q.Dequeue();
     q.Dequeue();
-    q.Dequeue();
+    q.Enqueue(2);
     
     return 0;
 }
