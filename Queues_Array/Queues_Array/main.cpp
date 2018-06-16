@@ -9,23 +9,32 @@
 #include <iostream>
 #include <string>
 
-#define Max 3
+
 
 using namespace std;
 class Queues{
-    int Q[Max];
+private:
+    int max_queue;
+    int number_of_element;
     int head,tail;
 public:
     void Enqueue(int x);
     int Dequeue();
     bool IsEmpty();
-    Queues(){tail=0;head=0;}
+    Queues();
+    ~Queues();
     
 };
-
+Queues:: Queues(){
+    max_queue=5;
+    head=0;
+    tail=0;
+    number_of_element=0;
+}
+Queues::~Queues(){}
 void Queues::Enqueue(int x){
    
-    if(tail>=Max){
+    if(tail>=max_queue){
         cout<<"overflow"<<endl;
     }
     else{
@@ -64,7 +73,7 @@ bool Queues::IsEmpty(){
 int main(int argc, const char * argv[]) {
     // insert code here...
     
-    struct Queues q;
+     Queues q;
     q.Enqueue(5);
     q.Enqueue(3);
     q.Enqueue(4);
