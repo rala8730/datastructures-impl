@@ -9,33 +9,41 @@
 #include <string>
 using namespace std;
 
-/*
-class Hashtable{
+class movie{
 public:
-    Hashtable();
-    ~Hashtable();
+    string Title;
+    int Ranking;
+    int Year;
+
     int hashsum(string key, int tablesize);
 };
-*/
 
 int hashsum(string key, long tablesize){
     int sum=0;
     long index=key.length();
     for (int i=0; i<index;i++){
-        cout<<key[i]<<" "<<(int)key[i]<<endl;
+        //cout<<key[i]<<" "<<(int)key[i]<<endl;
         sum=sum+key[i];
     }
-    cout<<sum<<"%"<<tablesize<<endl;
+    //cout<<sum<<"%"<<tablesize<<endl;
     sum= sum % tablesize;
-    cout<<sum<<endl;
+    //cout<<sum<<endl;
     return sum;
 }
 
 int main(int argc, const char * argv[]) {
-    //Hashtable hash;
-    std::string key("Shawshank Redemption");
-
-    hashsum(key,key.size());
+    movie HashTable[50];
+    movie m;//creating an instance of the movie
+    m.Title="Shawshank Redemption";
+    //using the index to store  movie "Shawshank Redemption"
+    int index=hashsum(m.Title,50);
+    HashTable[index]=m;
     
+    /*
+    //retriving the record from a hash table perform the step in reverse
+    index=hashsum("Shawshank Redemption", 50);//calculating hash value for key
+    m=HashTable[index];// retriving the information at that index in the hash table
+    */
+
     return 0;
 }
