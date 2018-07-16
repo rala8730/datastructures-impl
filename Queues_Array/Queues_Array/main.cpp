@@ -8,13 +8,13 @@
 
 #include <iostream>
 #include <string>
-
+#define max 3
 
 
 using namespace std;
 class Queues{
 private:
-    int max_queue;
+    int Q[max];
     int number_of_element;
     int head,tail;
 public:
@@ -26,7 +26,7 @@ public:
     
 };
 Queues:: Queues(){
-    max_queue=5;
+    //max_queue=5;
     head=0;
     tail=0;
     number_of_element=0;
@@ -34,7 +34,7 @@ Queues:: Queues(){
 Queues::~Queues(){}
 void Queues::Enqueue(int x){
    
-    if(tail>=max_queue){
+    if(tail>=max){
         cout<<"overflow"<<endl;
     }
     else{

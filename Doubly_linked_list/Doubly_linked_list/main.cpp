@@ -57,7 +57,6 @@ void Doubly_linked_list::list_insert_front(int adddata){
     }
     if(n==NULL){//if lookval not found it returns null
         cout<<lookval<<": is not found"<<endl;
-        
         return NULL;
         
     }else{//if lookval is found returns the n node;
@@ -71,7 +70,7 @@ void Doubly_linked_list::list_delete(int deldata){
         delptr->prev->next=delptr->next;//the pointer that points from left(-->) is pointing to next of delptr
     }
     else{
-        head=head->next;//if it is head then head is pointing to next node
+        head=delptr->next;//if it is head then head is pointing to next node
     }
     if(delptr->next!=NULL){//it delpter is not the last element
         delptr->next->prev=delptr->prev;// the pointer that points from right(<--) is pointing to prev of delptr

@@ -36,14 +36,16 @@ int main(int argc, const char * argv[]) {
     movie m;//creating an instance of the movie
     m.Title="Shawshank Redemption";
     //using the index to store  movie "Shawshank Redemption"
-    int index=hashsum(m.Title,50);
+    int index=hashsum(m.Title,7);
     HashTable[index]=m;
+    cout<<index<<":index"<<endl;
     
     /*
     //retriving the record from a hash table perform the step in reverse
     index=hashsum("Shawshank Redemption", 50);//calculating hash value for key
     m=HashTable[index];// retriving the information at that index in the hash table
     */
+
 
     return 0;
 }
